@@ -1,10 +1,10 @@
 // DOM value assignment for the create task form
-const formSubmit = document.getElementById("create-task-form");
+const form = document.querySelector('#create-task-form')
 
-formSubmit.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {
   addingTasks();
   // Reset form after data submission
-  formSubmit.reset();
+  form.reset();
 
   // Prevent default form POST behaviour. Without this, form resets and clears the Todo list
   event.preventDefault();
@@ -13,16 +13,22 @@ formSubmit.addEventListener("submit", (event) => {
 // Function to handle adding tasks to "My Todos"
 function addingTasks() {
   // ul element selection
-  const tasks = document.getElementById("tasks");
+  const taskList = document.querySelector('#tasks')
   // Form Input value selection
-  const newTask = document.getElementById("new-task-description").value;
+  const formInput = document.querySelector('#new-task-description').value;
 
   // Create new list element
   const li = document.createElement("li");
 
   // Assign Form Input Value to li's text content
-  li.textContent = newTask;
+  li.textContent = formInput;
 
   // Append li element to ul
-  tasks.append(li);
+  taskList.append(li);
 }
+
+/*
+form = document.querySelector('#create-task-form')
+formInput = document.querySelector('#new-task-description')
+taskList = document.querySelector('#tasks')
+*/
